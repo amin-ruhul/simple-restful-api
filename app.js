@@ -6,7 +6,7 @@ require("dotenv/config");
 
 const PORT = 5000;
 
-app.use("/post", postRouter);
+app.use("/posts", postRouter);
 
 mongoose.connect(
   process.env.MONGO_DB_URLS,
