@@ -1,10 +1,11 @@
 const express = require("express");
 const postRouter = require("./routes/post");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const app = express();
 require("dotenv/config");
 
-const PORT = 5000;
+app.use(bodyParser.json());
 
 app.use("/posts", postRouter);
 
@@ -24,7 +25,7 @@ mongoose.connect(
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
-
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`server running on port: http://localhost:${PORT}`);
 });
